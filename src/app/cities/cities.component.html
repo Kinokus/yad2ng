@@ -1,6 +1,6 @@
 <div class="main">
   <ul>
-    <li *ngFor="let city of cities$">
+    <li *ngFor="let city of (cities$| async)">
       <a href="#">
         {{city}}
       </a>

@@ -5,15 +5,16 @@ import {SubjectsService} from "./subjects.service";
   providedIn: 'root'
 })
 export class ApiService {
+  serverProtocol = 'http'
   serverUrl = "127.0.0.1:9191"
   apiUrls = {
-    cities: `${this.serverUrl}/cities`
+    cities: `${this.serverProtocol}://${this.serverUrl}/cities`
   }
 
-  getCities(): void {
-    fetch(this.apiUrls.cities)
-      .then(response=>response.json())
-      .then(this.subjectsService.cities$.next)
+  async getCities(): Promise<void> {
+    const response = await fetch(this.apiUrls.cities)
+    const json = await response.json()
+    this.subjectsService.cities$.next(json)
   }
 
 

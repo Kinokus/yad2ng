@@ -1,0 +1,29 @@
+@import "../variables";
+.main{
+  position: absolute;
+
+  top: $base-spacing;
+  bottom: $base-spacing;
+  left: $base-spacing;
+  right: $base-spacing;
+  padding: $base-spacing;
+  border: $base-border-full;
+
+  display: grid;
+
+  grid-template-columns: auto auto auto auto;
+
+  &.cities{
+
+  }
+
+  .cities,
+  .areas,
+  .apartments,
+  .apartment-info{
+    margin: $base-spacing;
+    padding: $base-spacing;
+    border: $base-border-full;
+  }
+
+}

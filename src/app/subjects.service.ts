@@ -14,9 +14,6 @@ export class SubjectsService {
   apartments$: BehaviorSubject<IApartment[]>
   apartment$: BehaviorSubject<IApartment>
 
-  async getCities(): Promise<void> {
-    
-  }
 
   constructor() {
     this.apartment$ = new BehaviorSubject<IApartment>(null)

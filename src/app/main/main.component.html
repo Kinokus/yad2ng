@@ -8,7 +8,7 @@
   <div class="apartments">
     <app-apartments></app-apartments>
   </div>
-  <div class="apartment-info">
+  <div class="apartment-info" *ngIf="!!(apartment$|async)">
     <app-apartment-info>
 
     </app-apartment-info>

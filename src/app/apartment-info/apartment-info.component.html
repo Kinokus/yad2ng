@@ -1,1 +1,15 @@
-{{apartment$ | async | json}}
+<div class="main">
+  {{apartment$ | async | json}}
+  <div class="photo" *ngIf="(apartment$ | async) && (apartment$ | async)['images']">
+    <img [src]="'http://' + (apartment$ | async)['images'][photoIdx]">
+  </div>
+  <div class="thumbs" *ngIf="(apartment$ | async)&& (apartment$ | async)['images'] ">
+    <div
+      class="thumb"
+      *ngFor="let thumb of (apartment$ | async)['images']; let idx = index"
+      (click)="setPhotoIdx(idx)"
+    >
+      {{idx}}
+    </div>
+  </div>
+</div>

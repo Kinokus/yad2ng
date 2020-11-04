@@ -23,11 +23,18 @@ export class ApartmentsComponent implements OnInit {
 
   async getApartment(address: IAddress) {
 
+    this.address$.next(address)
+
     await this.apiService.getApartment(
       this.subjectsService.city$.value,
       this.subjectsService.area$.value,
       address
     )
 
+  }
+
+  resetApartment() {
+    this.address$.next(null)
+    this.subjectsService.apartment$.next(null)
   }
 }

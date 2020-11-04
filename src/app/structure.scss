@@ -1,0 +1,33 @@
+@import "./variables";
+.main{
+  position: absolute;
+  top: $base-spacing;
+  bottom: $base-spacing;
+  left: $base-spacing;
+  right: $base-spacing;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  .selected{
+    color: #c6538c;
+  }
+  .city-selected, .area-selected, .apartment-selected{
+    white-space: nowrap;
+    width: 32px;
+    flex: 1 0 auto;
+    top: $base-spacing ;
+    bottom: $base-spacing;
+    border: $base-border-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .title{
+      padding: $base-spacing;
+      //border: $base-border-full;
+      transform: rotate(-90deg);
+      //transform-origin: 50% 50%;
+    }
+
+  }
+}

@@ -1,8 +1,19 @@
 <div class="main">
-  <ul *ngIf="areas$ | async">
+
+  <ul *ngIf="(areas$ | async) && !(area$|async)" >
     <li *ngFor="let area of (areas$ | async)">
       <a href="#" (click)="getApartments(area)">{{area}}</a>
     </li>
   </ul>
+
+  <div class="area-selected" (click)="resetArea()" *ngIf="!!(area$|async)">
+    <div class="title">
+      {{area$ | async}}
+    </div>
+
+  </div>
+
+
+
 </div>
 

@@ -10,6 +10,7 @@ import {IApartment} from "../IApartment";
 })
 export class ApartmentInfoComponent implements OnInit {
   public apartment$: BehaviorSubject<IApartment>;
+  public photoIdx = 0;
 
   constructor(private subjectsService:SubjectsService) {
 
@@ -19,4 +20,7 @@ export class ApartmentInfoComponent implements OnInit {
     this.apartment$ = this.subjectsService.apartment$
   }
 
+  setPhotoIdx(idx: number) {
+    this.photoIdx = idx
+  }
 }

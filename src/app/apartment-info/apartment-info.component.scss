@@ -1,0 +1,23 @@
+@import "../variables";
+.main{
+  .photo {
+    img{
+      width: 300px;
+      height: 300px;
+      object-fit: scale-down;
+    }
+  }
+.thumbs{
+  display: flex;
+  .thumb{
+    margin: $base-spacing;
+    padding: $base-spacing;
+    border: $base-border-full;
+    width: $base-small-thumb;
+    height: $base-small-thumb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+}

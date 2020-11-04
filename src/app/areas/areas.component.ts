@@ -11,6 +11,7 @@ import {ApiService} from "../api.service";
 })
 export class AreasComponent implements OnInit {
   public areas$: BehaviorSubject<IArea[]>;
+  public area$: BehaviorSubject<IArea>;
 
   constructor(
     private subjectsService: SubjectsService,
@@ -20,10 +21,27 @@ export class AreasComponent implements OnInit {
 
   ngOnInit(): void {
     this.areas$ = this.subjectsService.areas$
+    this.area$ = this.subjectsService.area$
   }
 
   async getApartments(area: IArea) {
-    this.subjectsService.area$.next(area)
+
+    this.subjectsService.apartment$.next(null)
+    this.subjectsService.apartments$.next(null)
+    this.subjectsService.addresses$.next(null)
+    this.subjectsService.address$.next(null)
+
+
+    this.area$.next(area)
     await this.apiService.getApartments(this.subjectsService.city$.value, area)
+  }
+
+  resetArea() {
+    this.subjectsService.apartment$.next(null)
+    this.subjectsService.apartments$.next(null)
+    this.subjectsService.addresses$.next(null)
+    this.subjectsService.address$.next(null)
+    this.area$.next(null)
+
   }
 }

@@ -1,9 +1,18 @@
 <div class="main">
-  <ul>
-    <li *ngFor="let city of (cities$| async)">
+
+  <ul *ngIf="!(city$|async)" class="cities-list">
+    <li *ngFor="let city of (cities$| async)" [class.selected]="(city$|async) === city">
       <a href="#" (click)="getAreas(city)">
         {{city}}
       </a>
     </li>
   </ul>
+
+  <div class="city-selected" (click)="resetAll()" *ngIf="!!(city$|async)">
+    <div class="title">
+      {{city$ | async}}
+    </div>
+
+  </div>
+
 </div>

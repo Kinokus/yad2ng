@@ -1,9 +1,15 @@
 <div class="main">
-  <ul *ngIf="addresses$ | async">
+  <ul *ngIf="(addresses$ | async) && !(address$|async)">
     <li *ngFor="let address of (addresses$ | async)">
       <a href="#" (click)="getApartment(address)">{{address}}</a>
-
     </li>
   </ul>
+  <div class="apartment-selected" (click)="resetApartment()" *ngIf="!!(address$|async)">
+    <div class="title">
+      {{address$ | async}}
+    </div>
+
+  </div>
+
 </div>
 

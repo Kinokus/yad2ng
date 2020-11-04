@@ -1,7 +1,7 @@
 <div class="main">
   <ul>
     <li *ngFor="let city of (cities$| async)">
-      <a href="#">
+      <a href="#" (click)="getAreas(city)">
         {{city}}
       </a>
     </li>

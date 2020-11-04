@@ -1,1 +1,8 @@
-<p>areas works!</p>
+<div class="main">
+  <ul *ngIf="areas$ | async">
+    <li *ngFor="let area of (areas$ | async)">
+      <a href="#" (click)="getApartments(area)">{{area}}</a>
+    </li>
+  </ul>
+</div>
+

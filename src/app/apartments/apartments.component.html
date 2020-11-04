@@ -1,1 +1,9 @@
-<p>apartments works!</p>
+<div class="main">
+  <ul *ngIf="addresses$ | async">
+    <li *ngFor="let address of (addresses$ | async)">
+      <a href="#" (click)="getApartment(address)">{{address}}</a>
+
+    </li>
+  </ul>
+</div>
+

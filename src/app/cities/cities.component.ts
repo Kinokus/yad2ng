@@ -20,9 +20,13 @@ export class CitiesComponent implements OnInit {
     private subjectsService: SubjectsService) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.cities$ = this.subjectsService.cities$
-    this.apiService.getCities()
+    await this.apiService.getCities()
   }
 
+  async getAreas(city: ICity) {
+    this.subjectsService.city$.next(city)
+    await this.apiService.getAreas(city)
+  }
 }

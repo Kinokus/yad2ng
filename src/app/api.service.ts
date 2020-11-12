@@ -29,7 +29,7 @@ export class ApiService {
   async getApartments(city, area): Promise<void> {
     const response = await fetch(this.apiUrls.apartments(city, area))
     const json = await response.json()
-    this.subjectsService.addresses$.next(json)
+    this.subjectsService.apartments$.next(json)
   }
   async getApartment(city, area, address): Promise<void> {
     const response = await fetch(this.apiUrls.apartment(city, area, address))

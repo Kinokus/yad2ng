@@ -1,1 +1,10 @@
 @import "../structure";
+.main{
+  .apartments-table{
+    tr{
+      th{
+        text-align: start;
+      }
+    }
+  }
+}

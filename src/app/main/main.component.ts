@@ -11,7 +11,7 @@ import {IApartment} from "../IApartment";
 export class MainComponent implements OnInit {
   public apartment$: BehaviorSubject<IApartment>;
 
-  constructor(private subjectsService: SubjectsService) { }
+  constructor(public subjectsService: SubjectsService) { }
 
   ngOnInit(): void {
     this.apartment$ =this.subjectsService.apartment$

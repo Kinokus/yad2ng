@@ -21,11 +21,16 @@
   .areas,
   .apartments,
   .apartment-info {
+
     flex: 1 0 32px;
     position: relative;
     margin: $base-spacing;
     padding: $base-spacing;
     border: $base-border-full;
+  }
+
+  .selected{
+    flex: 0 0 42px;
   }
 
 

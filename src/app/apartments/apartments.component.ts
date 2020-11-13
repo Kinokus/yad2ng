@@ -14,11 +14,37 @@ export class ApartmentsComponent implements OnInit {
   public address$: BehaviorSubject<IAddress>;
   public addresses$: BehaviorSubject<IAddress[]>;
 
+  public fields = [
+    {
+      name:'apartment id',
+      field:'apartmentId'
+    },
+    {
+      name:'Address',
+      field:'address'
+    },
+    {
+      name:'Price',
+      field:'price'
+    },
+    {
+      name:'Rooms',
+      field:'rooms'
+    },
+    {
+      name:'Meters',
+      field:'meters'
+    }
+  ]
+
+  public apartments$: BehaviorSubject<IApartment[]>;
+
   constructor(private subjectsService:SubjectsService, private apiService:ApiService) { }
 
   ngOnInit(): void {
     this.address$ = this.subjectsService.address$
     this.addresses$ = this.subjectsService.addresses$
+    this.apartments$ = this.subjectsService.apartments$
   }
 
   async getApartment(address: IAddress) {
@@ -36,5 +62,9 @@ export class ApartmentsComponent implements OnInit {
   resetApartment() {
     this.address$.next(null)
     this.subjectsService.apartment$.next(null)
+  }
+
+  setApartment(apartment: IApartment) {
+    this.subjectsService.apartment$.next(apartment)
   }
 }

@@ -1,8 +1,8 @@
 <div class="main">
-  <div class="cities">
+  <div class="cities" [class.selected]="subjectsService.city$ | async">
     <app-cities></app-cities>
   </div>
-  <div class="areas">
+  <div class="areas" [class.selected]="subjectsService.area$ | async">
     <app-areas></app-areas>
   </div>
   <div class="apartments">
